@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 
 frappuccino_data = {
@@ -11,4 +12,10 @@ frappuccino_data = {
 
 
 def hiec_jpg():
-    pass
+    DIR = ""
+
+    FILES = os.listdir(DIR)
+
+    for f in FILES:
+        command = 'sips --setProperty format jpeg ' + DIR + f +  ' --out ' + DIR + f.replace('.HEIC','.jpg')
+        subprocess.call(command, shell=True)
